@@ -1,5 +1,5 @@
 // 请从课程简介里下载本代码
-import React, {useState, useContext} from 'react'
+import React, { useContext, useState } from 'react'
 
 const appContext = React.createContext(null)
 export const App = () => {
@@ -24,10 +24,11 @@ const User = () => {
 
 }
 const UserModifier = () => {
-  const {appState, setAppState} = useContext(appContext)
+  const contextValue = useContext(appContext)
+
   const onChange = (e) => {
-    appState.user.name = e.target.value
-    setAppState({...contextValue.appState})
+    contextValue.appState.user.name = e.target.value
+    contextValue.setAppState({...contextValue.appState})
   }
   return <div>
     <input value={contextValue.appState.user.name}
