@@ -28,6 +28,8 @@ const UserModifier = () => {
 
   const onChange = (e) => {
     contextValue.appState.user.name = e.target.value
+
+    // setAppState 会触发 contextValue.appState 的更新，前提条件是不能给原来对象的引用，必须给一个新的对象
     contextValue.setAppState({...contextValue.appState})
   }
   return <div>
